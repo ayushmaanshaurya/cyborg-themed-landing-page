@@ -1,0 +1,696 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #070b16;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(0, 217, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 217, 255, 0.035) 1px, transparent 1px);
+    background-size: 45px 45px;
+}
+
+.navbar {
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.12);
+    background: rgba(7, 11, 22, 0.88);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdropfilter: blur(15px);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.logo span,
+.hero h1 span,
+.section-heading h2 span,
+.about h2 span,
+.contact h2 span {
+    color: #00e5ff;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    color: #aab5c8;
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    color: #00e5ff;
+}
+
+.nav-button,
+.primary-btn {
+    text-decoration: none;
+    background: #00d9f5;
+    color: #06101a;
+    padding: 13px 23px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.nav-button:hover,
+.primary-btn:hover {
+    background: white;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: white;
+    border: 0;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 670px;
+    padding: 90px 10%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.tag,
+.eyebrow {
+    color: #00e5ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 30px;
+    margin-bottom: 25px;
+    background: rgba(0, 229, 255, 0.05);
+}
+
+.pulse {
+    width: 8px;
+    height: 8px;
+    background: #00ff9d;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #00ff9d;
+    animation: pulse 1.5s infinite;
+}
+
+.hero h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(43px, 6vw, 78px);
+    line-height: 1.16;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.hero-content > p {
+    max-width: 490px;
+    margin-top: 25px;
+    color: #9caac0;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.secondary-btn {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #34465b;
+    padding: 13px 23px;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    border-color: #00e5ff;
+    color: #00e5ff;
+}
+
+.stats {
+    display: flex;
+    gap: 55px;
+    margin-top: 60px;
+}
+
+.stats h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+}
+
+.stats h2 span {
+    color: #00e5ff;
+}
+
+.stats p {
+    color: #8291a8;
+    font-size: 11px;
+    margin-top: 7px;
+}
+.hero-visual {
+    height: 490px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-glow {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    background: #007caa;
+    filter: blur(100px);
+    opacity: 0.28;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 50%;
+}
+
+.orbit-one {
+    width: 410px;
+    height: 410px;
+    animation: rotate 18s linear infinite;
+}
+
+.orbit-two {
+    width: 330px;
+    height: 460px;
+    transform: rotate(55deg);
+    border-style: dashed;
+    animation: rotate 25s linear infinite reverse;
+}
+
+.cyborg {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.35));
+    animation: float 4s ease-in-out infinite;
+}
+
+.cyborg-head {
+    position: relative;
+    width: 155px;
+    height: 185px;
+    background: linear-gradient(135deg, #a8c4d3, #263f56 40%, #071321 80%);
+    clip-path: polygon(20% 0, 80% 0, 100% 25%, 88% 75%, 65% 100%, 35% 100%, 12% 75%, 0 25%);
+    border: 2px solid #00e5ff;
+}
+
+.head-top {
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(90deg, #00e5ff, #34536b);
+    opacity: 0.7;
+}
+
+.eye {
+    position: absolute;
+    top: 75px;
+    width: 32px;
+    height: 7px;
+    background: #00eaff;
+    box-shadow: 0 0 18px #00eaff;
+    border-radius: 10px;
+    animation: eyeGlow 2s infinite alternate;
+}
+
+.eye-left {
+    left: 27px;
+}
+
+.eye-right {
+    right: 27px;
+}
+
+.face-line {
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: #00e5ff;
+    top: 110px;
+    left: 53px;
+}
+
+.jaw {
+    position: absolute;
+    width: 60px;
+    height: 35px;
+    border-bottom: 3px solid #00e5ff;
+    bottom: 10px;
+    left: 47px;
+}
+
+.neck {
+    width: 65px;
+    height: 45px;
+    background: linear-gradient(90deg, #243e55, #9eb8c8, #243e55);
+}
+
+.shoulders {
+    width: 250px;
+    height: 60px;
+    background: linear-gradient(90deg, #172e43, #9eb8c8, #172e43);
+    clip-path: polygon(20% 0, 80% 0, 100% 100%, 0 100%);
+}
+
+.chest {
+    width: 185px;
+    height: 100px;
+    margin-top: -2px;
+    background: linear-gradient(135deg, #416176, #091725 60%);
+    border: 1px solid #00e5ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+}
+
+.core {
+    width: 42px;
+    height: 42px;
+    background: #00e5ff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00e5ff, 0 0 40px #00e5ff;
+    animation: pulse 2s infinite;
+}
+
+.floating-label {
+    position: absolute;
+    z-index: 5;
+    background: rgba(5, 17, 30, 0.9);
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    padding: 12px;
+    color: #c9f9ff;
+    font-size: 10px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+}
+
+.floating-label span {
+    color: #00e5ff;
+    margin-right: 7px;
+}
+
+.label-one {
+    top: 75px;
+    right: 0;
+}
+
+.label-two {
+    bottom: 70px;
+    left: 0;
+}
+
+.scan-line {
+    position: absolute;
+    width: 300px;
+    height: 2px;
+    background: #00e5ff;
+    opacity: 0.5;
+    box-shadow: 0 0 15px #00e5ff;
+    animation: scan 4s linear infinite;
+    z-index: 4;
+}
+
+.technology {
+    padding: 100px 10%;
+    background: rgba(12, 23, 39, 0.7);
+    border-top: 1px solid rgba(0, 229, 255, 0.12);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.12);
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading h2,
+.about h2,
+.contact h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(25px, 4vw, 40px);
+    margin-top: 20px;
+}
+
+.section-heading p {
+    color: #8997aa;
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.tech-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.tech-card {
+    padding: 35px 28px;
+    border: 1px solid #1c3449;
+    background: linear-gradient(145deg, #101f31, #09121e);
+    transition: 0.35s;
+}
+
+.tech-card:hover {
+    transform: translateY(-9px);
+    border-color: #00e5ff;
+    box-shadow: 0 12px 35px rgba(0, 229, 255, 0.12);
+}
+
+.card-icon {
+    font-size: 36px;
+    color: #00e5ff;
+    margin-bottom: 25px;
+}
+
+.tech-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.tech-card p {
+    color: #94a2b6;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.tech-card a {
+    display: inline-block;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #00e5ff;
+    font-size: 12px;
+}
+
+.about,
+.contact {
+    padding: 110px 10%;
+    text-align: center;
+}
+
+.about p {
+    max-width: 680px;
+    margin: 25px auto 0;
+    color: #9caac0;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.contact {
+    background: linear-gradient(135deg, #0d2338, #09101c);
+    border-top: 1px solid rgba(0, 229, 255, 0.15);
+}
+
+.contact .primary-btn {
+    display: inline-block;
+    margin-top: 30px;
+}
+
+footer {
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1b2a3b;
+    gap: 20px;
+}
+
+footer p {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #738196;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes eyeGlow {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+@keyframes scan {
+    0% { transform: translateY(-160px); opacity: 0; }
+    50% { opacity: 0.7; }
+    100% { transform: translateY(160px); opacity: 0; }
+}
+
+@media (max-width: 850px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 70px;
+    }
+
+    .hero-visual {
+        min-height: 460px;
+    }
+
+    .tech-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar nav {
+        display: none;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        background: #0b1523;
+        padding: 25px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar nav.active {
+        display: flex;
+    }
+
+    .nav-button {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        padding: 65px 7%;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .stats {
+        gap: 25px;
+    }
+
+    .hero-visual {
+        transform: scale(0.85);
+        margin: -20px -30px;
+    }
+
+    .technology,
+    .about,
+    .contact {
+        padding: 75px 7%;
+    }
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ===== CYBORG PREMIUM UI UPGRADE ===== */
+
+::selection {
+    background: #00e5ff;
+    color: #07111d;
+}
+
+.navbar nav a {
+    position: relative;
+}
+
+.navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: #00e5ff;
+    transition: width 0.3s ease;
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+.tech-card {
+    position: relative;
+    overflow: hidden;
+    backdropfilter: blur(12px);
+    border-radius: 12px;
+    background: linear-gradient(
+        145deg,
+        rgba(20, 43, 65, 0.85),
+        rgba(5, 15, 28, 0.95)
+    );
+}
+
+.tech-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #00e5ff,
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.tech-card:hover::before {
+    left: 100%;
+}
+
+.tech-card:hover .card-icon {
+    text-shadow: 0 0 20px #00e5ff;
+    transform: scale(1.15);
+}
+
+.card-icon {
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    box-shadow: 0 0 18px rgba(0, 217, 245, 0.2);
+}
+
+.hero-content {
+    animation: heroEntrance 1s ease both;
+}
+
+.hero-visual {
+    perspective: 1000px;
+}
+
+@keyframes heroEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
